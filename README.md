@@ -1,1 +1,1 @@
-# coinWiki2.0
+# job-board
