@@ -18,27 +18,28 @@ function coinTickerApi(coinName) { // ref line 19
                 .then(function (data) {
                     coinName = data.name; // ex: {"name: 'Bitcoin'"} the name
                     coinIcon = data.image.small; // ex: {"image: 'small'"} the icon
+                    coiniLarge = data.image.large; // large image
                     coinSymbol = data.symbol; // ex: {"symbol: 'btc'"} this is the coin's ticker
                     homepage = data.links.homepage[0]; // homepage
                     coinId = data.id; //coin id
                     // setting parameters for the following functions
-                    displayCurrentData(coinName, coinIcon, coinSymbol);
-                    dispSearchHist(coinId);
+                    displayCurrentData(coinName, coinIcon, coiniLarge, coinSymbol, homepage);
+                    dispSearchHist(coinId, coinName, coiniLarge, homepage, coinSymbol, false);
                 })
         });
 
     return;
 }
 
-function displayCurrentData(coinName, coinIcon, coinSymbol) { // ref coinsListapi
-    $("#tickerContainer").attr("class", "box");// coin data container in html file
+function displayCurrentData(coinName, coinIcon, coiniLarge, coinSymbol, homepage) { // ref coinsListapi
+    $("#tickerContainer").attr("class", "");// coin data container in html file
     $("#coinName").html(coinName);// coin name
     $("#coinSymbol").html(`${coinSymbol}`); // coin symbol
     $("#icon").attr("src", `${coinIcon}`); //icon
     $("#homepage").attr("href", `${homepage}`); // homepage link
 }
 
-function dispSearchHist(coinId, initialStart) {
+function dispSearchHist(coinId, coinName, coiniLarge, homepage, coinSymbol, initialStart) {
     // search history
     var matchFound = false;
     $("#previousSearches").children("").each(function () {
@@ -49,7 +50,21 @@ function dispSearchHist(coinId, initialStart) {
     });
     if (matchFound) { return; }
 
-    var buttonEl = $('<button type="button" class="col s12 m3 btn">' + coinId + '</button>')
+    var buttonEl = $(`<div class="box m-2">
+            <div class="tile is-parent">
+                <div class="tile is-vertical has-text-left">
+                    <h1 class="title">${coinSymbol}</h1>
+                    <h2 class="subtitle">${coinName}</h2>
+                </div>
+                <div class="tile">
+                        <a href="${homepage}">
+                            <button class="button is-ghost">
+                                <img src="${coinIcon}">
+                            </button>
+                        </a>
+                </div>
+            </div>
+            </div>`)
     buttonEl.on("click", previousButtonClick);
     buttonEl.prependTo(searchHistoryEl);
 
