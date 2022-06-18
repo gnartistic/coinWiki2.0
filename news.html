@@ -31,15 +31,9 @@
                 </nav>
             </div>
             <div class="hero-body">
-                <!-- <div class="container has-text-centered">
-                    <div class="tile">
-                    <form class="" id="searchForm">
-                        <input type="text" name="search" class="input is-rounded"
-                            id="searchInput" placeholder="Search">
-                        <button type="submit" class="button is-dark" id="mySearchButton">Search</button>
-                    </form>
-                    </div>
-                </div> -->
+                <div class="container has-text-centered">
+                    <h1 class="title is-size-1">Current News</h1>
+                </div>
             </div>
             <div class="hero-foot">
                 <nav class="tabs is-fullwidth">
@@ -75,17 +69,35 @@
         </section>
     </header>
         <main>
+            <section class="section box">
+                <div class="tile">
+                    <div class="tile is-4 is-parent">
+                        <div class="tile is-child box">
+                            <form class="" id="searchForm">
+                                <input type="search" name="search" class="input is-rounded p-2" id="searchInput" placeholder="Search">
+                                <button type="submit" class="button is-dark m-5" id="mySearchButton">Search</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>
         <script src="https://code.jquery.com/jquery-3.6.0.js"
             integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
         <script src="./assets/js/script.js"></script>
 
-        <footer id="footer">
-            <p>&copy; Made With Love By Charlie, Madelyn, Amin, Sergio </p>
-            <span>
-                <a id="link1"> <button id="btn1">Blockchain</button></a>
-                <a id="link2"> <button id="btn2">Bitcoin Forum</button></a>
-                <a id="link3"> <button id="btn3">Ethereum Subreddit</button></a>
-            </span>
+        <footer class="footer">
+            <div class="has-text-centered">
+                <p>
+                    <strong>CoinWiki</strong> by <a href="https://gnartistic.github.io/charlie-houston/">Charles
+                        Houston</a>. The source code is licensed
+                    <a href="./LICENSE">MIT</a>. <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img
+                            alt="Creative Commons License" style="border-width:0"
+                            src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a><br />This work is
+                    licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative
+                        Commons
+                        Attribution-NonCommercial-NoDerivatives 4.0 International License</a>
+                </p>
+            </div>
         </footer>
     </body>
